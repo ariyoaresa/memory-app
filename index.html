@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+      background-color: #333;
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none;
+    }
+        #side{
+            position: fixed;
+            top: 0;
+            left: -300px;
+            padding: 5px;
+            height: 100vh;
+            background-color: #333;
+            font-size: 40px;
+            transition: .7s;
+            border-style: solid;
+            border-color: #fff;
+            border-left-color: #333;
+        }
+        #side a{
+          text-decoration: none;
+          color: black;
+        }
+        #side li{
+            list-style-type: none;
+        }
+        #side li:hover {
+            background-color: #535353;
+        }
+        .open{
+            position: fixed;
+            top: 4px;
+            font-size: 50px;
+            cursor: pointer;
+            color: #dbd5d5;
+        }
+    h1 {
+      text-align: center;
+      color: #fff;
+      font-size: 38px;
+      margin-top: 50px;
+    }
+    #currentlevel{
+        background-color: #534f4f;
+        pointer-events: none;
+        border-radius: 8px;
+    }
+    img {
+      width: 90vw;
+    }
+    button{
+      background-color: blue;
+      width: 8em;
+      height: 40px;
+    }
+    button a{
+      text-decoration: none;
+      color: white;
+      font-size: 30px;
+    }
+    </style>
+    <title>Level 4</title>
+</head>
+<body>
+    <label id="side">
+    <li id="currentlevel">Home</li>
+    <a href="Memory1.html"><li>Level 1</li></a>
+    <a href="memory2.html"><li>Level 2</li></a>
+    <a href="memory3.html"><li>Level 3</li></a>
+    <a href="memory4.html"><li>Level 4</li></a>
+    <li onclick="closeMenu()" id="close">Close menu</li>
+    </label>
+    <div class="open" onclick="openMenu()" id="open">≡</div>
+
+
+
+
+	<h1>Memory App Game</h1>
+<center><img src="home pic.png" alt="cards turned"></center>
+
+    <h1>Turn the cards and try to match them</h1>
+    <center><button><a href="Memory1.html">Play</a></button></center>
+
+    <script>
+        function openMenu() {
+            document.getElementById("side").style.left = 0;
+            document.getElementById("open").style.display = "none"
+        }
+        function closeMenu() {
+            document.getElementById("side").style.left = "-300px";
+            document.getElementById("open").style.display = "flex"
+        }
+    </script>
+    
+</body>
+</html>

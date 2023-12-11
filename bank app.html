@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANK APP</title>
+    <style>
+        #main{
+            display: none;
+            background-color: blue;
+        }
+        
+        #textbalance, #balance {
+            font-weight: bold;
+            font-size: 30px;
+            text-decoration: underline;
+        }
+        input {
+            background-color: transparent;
+        }
+        button{
+            background-color: blue;
+            color: white
+        }
+    </style>
+</head>
+<body>
+    <!--login to an account with the nav bar element-->
+    <nav>
+            <label>login here<input type="text" placeholder="Username" id="username">
+                <input type="password" id="password"placeholder="Password">
+                <button onclick="login()">Login</button>
+            </label>
+    </nav>
+
+    <!--Main App-->
+    <div id="main">
+        <center><h1>Ariz Bank App</h1></center>
+
+        <p>Make transfers, and request for loans with our mobile apps</p>
+
+        <label id="textbalance">Acc Balance: $</label><label id="balance">3700</label>
+
+        <div class="loan" id="loan">
+            <h3>LOAN</h3>
+            <label>amount<input type="number"></label>
+            <button onclick="requestLoan()">Request Loan</button>
+        </div>
+        <div class="transfer" id="transfers">
+            <h3>TRANSFER</h3>
+            <label>amount<input type="number" id="transferamount"></label>
+            <label>acc number<input type="number"></label>
+            <button onclick="confirmTransfer()">Confirm Transaction</button>
+        </div>
+
+
+    </div>
+    </body>
+    <script>
+        let accountBalance = document.getElementById("balance").innerText
+        let main = document.getElementById("main")
+        function login() {
+            loginName = document.getElementById("username").value;
+            password = document.getElementById("password").value;
+            if (loginName == "Ariyo" && password == "ariyo123") {
+                main.style.display = "block"
+            }
+        }
+        function confirmTransfer() {
+            accountBalance = document.getElementById("balance").innerText
+            transferAmount = document.getElementById("transferamount").value
+            confirm("Do you want to transfer $" + transferAmount)
+            newAccountBalacne = accountBalance - transferAmount
+            localStorage.setItem('newAccountBalacne', JSON.stringify(newAccountBalacne))
+            alert(newAccountBalacne)
+        }
+    </script>
+</html>
